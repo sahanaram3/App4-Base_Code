@@ -25,7 +25,216 @@ blah, blah, blah, blah
 
    <head> 
       
-	   PUT YOUR OLD CODE IN HERE
+      <title>Hello World</title>  
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="apple-mobile-web-app-capable" content="yes">
+      <link rel="stylesheet" href="w3.css">
+      <link rel="stylesheet" href="w3-colors-flat.css">
+   </head> 
+
+
+<script>
+	// functions that keep track of count; "counter" for every page in order to output accurate result  
+        var allergy_count = 0;
+        var cold_count = 0;
+	 
+	// function keeps counter for allergies based on symptoms
+	// alert is pop-up box that shows counter
+	// additive (allergy = allergy + 1)
+	// function called in question pages and results page
+        function allergyAdd(){
+            allergy_count = allergy_count + 1;
+		alert(allergy_count);
+
+        }
+	
+	// function keeps counter for cold based on symptoms
+	// alert is pop-up box that shows counter
+	// additive (cold = cold + 1)
+	// function called in question pages and results page
+        function coldAdd(){
+            cold_count = cold_count + 1;
+		alert(cold_count);
+        }
+	
+	// result function simply captures information in paragraph "results"
+	// sets variables for allergy and cold percents based on allergy and cold counts
+	// resultText displays vars allergyPercent and coldPercent 
+	// utilizes "+" to display result which includes combination of text and variables
+	function resultOutput(){  
+	    var resultText = document.getElementById("results");
+	    var allergyPercent = (allergy_count/4)*100;
+	    var coldPercent = (cold_count/4)*100;
+	    resultText.innerHTML = "Probability it is allergies =" + allergyPercent + "%" + "<br> Probability it is a cold =" + coldPercent + "%";
+	}
+	
+
+
+  </script>
+
+
+
+<style>	//css styling; must assign to <div>
+.body {
+     margin: 0em;
+}
+
+.page {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: -100vw;
+    overflow-y: auto;
+    z-index: 0;
+    background-color: hsl(0,0%,100%);
+}
+
+  .page:target {
+    left: 0vw;
+    z-index: 1;
+}
+</style>
+
+<body>
+
+<!--header for title Cold or Allergies-->
+<!--header includes large text and orange box at top of page-->
+<div id="header" class="w3-container w3-flat-carrot">
+	<h1>Cold or Allergies?</h1>
+</div>
+	
+<div id="content" class="w3-container">
+	<!--content box sets up paragraph with instructions-->
+	<!--grey background with black text, smaller than header-->
+	<!--p symbol indicates paragraph/written words, formatted with line breaks-->
+	<p>Are you feeling like you might have a cold but wonder if it is allergies? Answer a few short questions to find out!</p>
+	
+	<a href="#one" class="w3-btn w3-grey w3-round"> Get Started </a>
+	<p>The following code has been developed by students and/or researchers of the Freshman Research Initiative DIY Diagnostics Stream at The University of Texas at 		Austin.  This code is shared for demonstration purposes and should not be considered a product -- it is for entertainment purposes only. Any user of this code 			does so at their own risk. Members of the DIY Stream, FRI, and The University of Texas system are not liable for anything related to this code.</p>
+ 	
+	<p>THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.</p>
+
+<!--keeps track of specific page through "id"-->
+<!--begins with page 1 for first symptom question-->
+<div class="page" id="one"> 
+	
+	<!--header for title Question 1-->
+	<!--header includes large text and orange box at top of page-->
+	<div id="header" class="w3-container w3-flat-carrot">
+		<h1>Question 1</h1>
+	</div>
+	
+	<!--p symbol indicates paragraph/written words-->
+	<!--content box sets up paragraph with question-->
+	<!--grey background with black text, smaller than header-->
+	<!--href turns to next page-->
+	<!--onclick calles allergyAdd/coldAdd, adds to counter when yes/no button is clicked-->
+	
+    	<div id="content" class="w3-container">
+        	<p>Are your eyes watery or itchy?</p>    
+		<a href="#two"  onclick="allergyAdd();" class="w3-btn w3-black"> Yes</a> <!--adding buttons; #two makes it turn to next page-->
+         	<a href="#two"  onclick="coldAdd();" class="w3-btn w3-black">No</a>
+
+    	</div>
+</div>
+
+<!--keeps track of specific page through "id"-->
+<!--begins with page 2 for second symptom question-->
+<div class="page" id="two">
+	
+	<!--header for title Question 2-->
+	<!--header includes large text and orange box at top of page-->
+	<div class="w3-container w3-flat-carrot">
+		<h1>Question 2</h1>
+	</div>
+	
+	<!--p symbol indicates paragraph/written words-->
+	<!--content box sets up paragraph with question-->
+	<!--grey background with black text, smaller than header-->
+	<!--href turns to next page-->
+	<!--onclick calles allergyAdd/coldAdd, adds to counter when yes/no button is clicked-->
+	<div id="content" class="w3-container">
+		<p>Do you have a fever?</p>
+		<a href="#three"  onclick="coldAdd();" class="w3-btn w3-black"> Yes</a> <!--adding buttons; #three makes it turn to next page-->
+         	<a href="#three"  onclick="allergyAdd();" class="w3-btn w3-black">No</a>
+
+	</div>
+</div>	
+
+<!--keeps track of specific page through "id"-->
+<!--begins with page 3 for third symptom question-->
+<div class="page" id="three">
+	
+	<!--header for title Question 3-->
+	<!--header includes large text and orange box at top of page-->
+	<div class="w3-container w3-flat-carrot">
+		<h1>Question 3</h1>
+	</div>
+	
+	<!--p symbol indicates paragraph/written words-->
+	<!--content box sets up paragraph with question-->
+	<!--grey background with black text, smaller than header-->
+	<!--href turns to next page-->
+	<!--onclick calles allergyAdd/coldAdd, adds to counter when yes/no button is clicked-->
+	<div id="content" class="w3-container">
+		<p>Do you have a sore throat?</p>
+		<a href="#four"  onclick="coldAdd();" class="w3-btn w3-black"> Yes</a> <!--adding buttons; #four makes it turn to next page-->
+         	<a href="#four"  onclick="allergyAdd();" class="w3-btn w3-black">No</a>
+
+	</div>
+</div>
+
+<!--keeps track of specific page through "id"-->
+<!--begins with page 4 for fourth and last symptom question-->
+<div class="page" id="four">
+	
+	<!--header for title Question 4-->
+	<!--header includes large text and orange box at top of page-->
+	<div class="w3-container w3-flat-carrot">
+		<h1>Question 4</h1>
+	</div>
+	
+	<!--p symbol indicates paragraph/written words-->
+	<!--content box sets up paragraph with question-->
+	<!--grey background with black text, smaller than header-->
+	<!--href turns to next page-->
+	<!--onclick calles allergyAdd/coldAdd, adds to counter when yes/no button is clicked-->
+	<div id="content" class="w3-container">
+		<p>Are your symptoms seasonal or chronic?</p>
+		<a href="#five"  onclick="allergyAdd();" class="w3-btn w3-black"> Yes</a> <!--adding buttons; #five makes it turn to next page-->
+         	<a href="#five"  onclick="coldAdd();" class="w3-btn w3-black">No</a> 
+
+	</div>
+</div>
+
+<!--last page as results page to output cold or allergy-->
+<!--keeps track of specific page through "id"-->
+<!--begins with page 5 for results-->	
+<div class="page" id="five">
+	
+	<!--header for title Results-->
+	<!--header includes large text and orange box at top of page-->
+	<div class="w3-container w3-flat-carrot">
+		<h1>Results</h2>
+	</div>
+	
+	<!--p symbol indicates paragraph/written words-->
+	<!--content box sets up paragraph with question-->
+	<!--grey background with black text, smaller than header-->
+	<!--onclick of results button calles resultOutput function that holds counter information-->
+	<div id="content" class="w3-container">
+		<!--outputting results by utilizing "+" to incorporate numerical values through variables--> 
+		<a onclick="resultOutput();" class="w3-btn w3-black"> Results </a> <! results button>
+		<p id="results"</p>
+		
+	</div>
+</div>
+	
+	
+<footer class="w3-bottom w3-container w3-flat-carrot">
+	<p>DIY!</p>
+	</footer>
 	   
    </body>
 </html>
